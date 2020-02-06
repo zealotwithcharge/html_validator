@@ -11,6 +11,34 @@ def validate_html(html):
     False
     '''
 
+    stack = []
+    try:
+        tags = _extract_tags(html)
+    except ValueError:
+        return False
+
+    for tag in tags:
+
+        # if the tag is an opening tag,
+        # then push it on to the stack
+        if tag[1] != '/':
+            stack.append(tag)
+
+        # if it's a closing tag,
+        # then check if the top of the stack matches
+        else:
+            if len(stack)==0:
+                return False
+            top = stack.pop()
+            if top[1:-1] != tag[2:-1]:
+                return False
+
+    if len(stack)==0:
+        return True
+    else:
+        return False
+
+
 
 def _extract_tags(html):
     '''
@@ -23,3 +51,24 @@ def _extract_tags(html):
     >>> _extract_tags('Python <strong>rocks</strong>!')
     ['<strong>', '</strong>']
     '''
+
+    tags=[]
+    current_tag = None
+    inside_tag = False
+
+    for i in range(len(html)):
+        if html[i] == '<':
+            current_tag = ''
+            inside_tag = True
+
+        if inside_tag:
+            current_tag += html[i]
+
+        if html[i] == '>':
+            inside_tag = False
+            tags.append(current_tag)
+
+    if inside_tag:
+        raise ValueError('found < without matching >')
+
+    return tags
