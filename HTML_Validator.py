@@ -51,20 +51,25 @@ def _extract_tags(html):
     ['<strong>', '</strong>']
     '''
 
-    tags=[]
+    tags = []
     current_tag = None
     inside_tag = False
+    seen_space = False
 
     for i in range(len(html)):
         if html[i] == '<':
             current_tag = ''
             inside_tag = True
 
-        if inside_tag:
+        if inside_tag and html[i] == ' ':
+            seen_space = True
+
+        if inside_tag and (not seen_space or html[i]=='>'):
             current_tag += html[i]
 
         if html[i] == '>':
             inside_tag = False
+            seen_space = False
             tags.append(current_tag)
 
     if inside_tag:
