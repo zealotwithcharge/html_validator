@@ -1,4 +1,5 @@
 import HTML_Validator
+import pytest
 
 
 def test__extract_tags_1():
