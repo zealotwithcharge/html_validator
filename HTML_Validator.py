@@ -27,13 +27,13 @@ def validate_html(html):
         # if it's a closing tag,
         # then check if the top of the stack matches
         else:
-            if len(stack)==0:
+            if len(stack) == 0:
                 return False
             top = stack.pop()
             if top[1:-1] != tag[2:-1]:
                 return False
 
-    if len(stack)==0:
+    if len(stack) == 0:
         return True
     else:
         return False
@@ -64,7 +64,7 @@ def _extract_tags(html):
         if inside_tag and html[i] == ' ':
             seen_space = True
 
-        if inside_tag and (not seen_space or html[i]=='>'):
+        if inside_tag and (not seen_space or html[i] == '>'):
             current_tag += html[i]
 
         if html[i] == '>':
