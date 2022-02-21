@@ -1,6 +1,6 @@
 # HTML Validation with Stacks
-[![](https://github.com/mikeizbicki/html_validator/workflows/tests/badge.svg)](https://github.com/mikeizbicki/html_validator/actions?query=workflow%3Atests)
-[![](https://github.com/mikeizbicki/html_validator/workflows/extra_credit/badge.svg)](https://github.com/mikeizbicki/html_validator/actions?query=workflow%3Atests)
+[![](https://github.com/zealotwithcharge/html_validator/workflows/tests/badge.svg)](https://github.com/zealotwithcharge/html_validator/actions?query=workflow%3Atests)
+[![](https://github.com/zealotwithcharge/html_validator/workflows/extra_credit/badge.svg)](https://github.com/zealotwithcharge/html_validator/actions?query=workflow%3Atests)
 
 You will implement an extended version of the balanced parentheses algorithm that checks whether html tags are balanced.
 (See [chapter 4.7](https://runestone.academy/runestone/books/published/pythonds/BasicDS/BalancedSymbolsAGeneralCase.html) of the book for details on the balanced parentheses algorithm.)
@@ -58,7 +58,7 @@ You are implementing a limited version of this program.
 
 Complete the following tasks:
 
-1. Fork the [html\_validator repo](https://github.com/mikeizbicki/html_validator) and enable github actions
+1. Fork the [html\_validator repo](https://github.com/zealotwithcharge/html_validator) and enable github actions
 1. Update the `README.md` file so that the test case badges point to your forked repo
 1. Implement the `validate_html` and `_extract_tags` functions so that all test cases in `tests/test_main.py` pass
 
