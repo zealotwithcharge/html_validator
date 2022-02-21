@@ -29,7 +29,7 @@ def validate_html(html):
         if tag[1] != "/":
             stack.append(tag)
         else:
-            if len(stack) != 0 and stack[-1] == "<"+tag[2:]:
+            if len(stack) != 0 and stack[-1] == "<" + tag[2:]:
                 stack.pop()
             else:
                 return False
